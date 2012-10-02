@@ -30,4 +30,10 @@ describe "Kernel#Array" do
 
     Array(input).must_equal [[:a,1], [:b,2]]
   end
+
+  it "converts range into an array" do
+    input = 1..3
+
+    Array(input).must_equal [1,2,3]
+  end
 end
