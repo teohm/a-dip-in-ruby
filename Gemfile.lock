@@ -5,6 +5,7 @@ GEM
     minitest (4.0.0)
     turn (0.9.3)
       ansi
+    watchr (0.7)
 
 PLATFORMS
   ruby
@@ -12,3 +13,4 @@ PLATFORMS
 DEPENDENCIES
   minitest
   turn
+  watchr
