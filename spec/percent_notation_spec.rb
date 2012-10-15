@@ -1,5 +1,8 @@
 require 'minitest/spec'
-#http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation
+
+# See also:
+# http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation
+#
 describe "The % Notation" do
   describe "delimiter" do
     it "allows any alphanum character" do
