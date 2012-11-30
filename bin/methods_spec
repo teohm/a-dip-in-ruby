@@ -1,0 +1,41 @@
+#!/usr/bin/ruby
+
+require 'erb'
+
+abort "Usage: bin/method_spec CLASS_NAME > spec/foo_spec.rb" if ARGV.count != 1
+
+name = ARGV.shift
+klass = Object.const_get(name)
+
+template = ERB.new(DATA.read, 0, '-<>')
+
+class_name = name
+class_methods = klass.methods(false).sort
+instance_methods = klass.instance_methods(false).sort
+
+puts template.result(binding)
+
+__END__
+describe '<%= class_name %>' do
+<%- unless class_methods.empty?  -%>
+  describe 'Class Methods' do
+  <%- class_methods.each do |method| -%>
+    specify '::<%= method %>' do
+      skip
+    end
+
+  <%- end -%>
+  end
+<% end -%>
+
+<% unless instance_methods.empty? -%>
+  describe 'Instance Methods' do
+  <%- instance_methods.each do |method| -%>
+    specify '#<%= method %>' do
+      skip
+    end
+
+  <%- end -%>
+  end
+<% end -%>
+end
